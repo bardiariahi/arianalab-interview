@@ -45,8 +45,7 @@ function Index() {
       age,
       skills
     }
-    console.log(data);
-    dispatch(onSubmitData());
+    dispatch(onSubmitData(data));
   };
 
   return (
