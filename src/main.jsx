@@ -4,7 +4,7 @@ import Home from "./component/home/index";
 import Charts from "./component/charts/index";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './assets/styles/globall.css'
-import { store } from "./app/store";
+import { store } from "./store/store";
 import { Provider } from "react-redux";
 
 const router = createBrowserRouter([

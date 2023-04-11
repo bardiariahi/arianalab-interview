@@ -1,13 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {};
+const initialState = {
+    value : null
+};
 
 export const mainDataSlice = createSlice({
   name: "mainData",
   initialState,
   reducers: {
     onSubmitData : (state , action) => {
-        console.log(action)
+        console.log(action, "action");
+        console.log(state, "state"  );
     }
   },
 });

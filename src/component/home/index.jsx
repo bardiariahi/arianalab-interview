@@ -6,6 +6,7 @@ import { onSubmitData } from "../../store/slices/mainDataSlice";
 
 function Index() {
   let navigate = useNavigate();
+  const dispatch = useDispatch()
 
   function handleCharts() {
     navigate("/charts");
@@ -45,6 +46,7 @@ function Index() {
       skills
     }
     console.log(data);
+    dispatch(onSubmitData());
   };
 
   return (
