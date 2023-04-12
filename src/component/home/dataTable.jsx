@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 function DataTable() {
     const dataList = useSelector((state) => state.mainData.mainData);
-   
+
     return (
         <div className="pt-4">
             {dataList.length == 0 ? (
@@ -43,11 +43,9 @@ function DataTable() {
                                             {data.age}
                                         </td>
                                         <td className="border-l pl-3 py-3">
-                                            {typeof data.skills === "string"
-                                                ? data.skills
-                                                : data.skills.map(
-                                                      (item) => ` ${item}  `
-                                                  )}
+                                            {data.skills.map(
+                                                (item) => ` ${item}  `
+                                            )}
                                         </td>
                                     </tr>
                                 );

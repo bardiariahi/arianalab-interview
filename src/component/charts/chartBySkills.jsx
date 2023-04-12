@@ -4,34 +4,44 @@ import { useSelector } from "react-redux";
 
 function ChartBySkills() {
     const dataList = useSelector((state) => state.mainData.mainData);
+    let skillsList = []
 
-    const finalAgeData = dataList.reduce((prev, cur) => {
-        let ageNumber = cur.age;
-        if (!prev[ageNumber]) {
-            prev[ageNumber] = { ageNumber, children: [cur] };
+    dataList.map( data => {
+        data.skills.map( (item) => {
+            skillsList.push(item)
+        })
+    }) 
+    
+
+    const finalSkillsData = skillsList.reduce((prev, cur) => {
+        const skill = cur
+        if (!prev[skill]) {
+            prev[skill] = { skill, children: [cur] };
         } else {
-            prev[ageNumber].children.push(cur);
+            prev[skill].children.push(cur);
         }
         return prev;
     }, {});
 
-    const agenumberValues = Object.keys(finalAgeData);
-    const agenumber = Object.values(finalAgeData).map(
+    
+
+    const skillsNumberValues = Object.keys(finalSkillsData);
+    const skillsNumber = Object.values(finalSkillsData).map(
         (item) => item.children.length
     );
 
     const [options, setOptions] = useState({
         chart: {
-            id: "age is",
+            id: "skills is",
         },
         xaxis: {
-            categories: agenumberValues,
+            categories: skillsNumberValues,
         },
     });
     const [series, setSeries] = useState([
         {
-            name: "numbers of age",
-            data: agenumber,
+            name: "skills",
+            data: skillsNumber,
         },
     ]);
 
