@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { onSubmitData } from "../../store/slices/mainDataSlice";
 
@@ -10,6 +10,13 @@ function ModalButton() {
     const [skills, setSkills] = useState([]);
     const [bd, setBd] = useState("");
     const [age, setAge] = useState();
+    const [btnIsAllow,setBtnIsAllow] = useState(false)
+
+    useEffect( ()=>{
+        if (name !== "" && lastName !== "" && bd !== "" && skills.length !== 0) {
+            setBtnIsAllow(true)
+        }
+    },[name,lastName,skills,bd])
     
     const clearHooks = () => {
         setName("")
@@ -17,6 +24,7 @@ function ModalButton() {
         setSkills([])
         setBd("")
         setAge(null)
+        setBtnIsAllow(false)
     }
 
     const handleName = (e) => {
@@ -106,13 +114,21 @@ function ModalButton() {
                             <label htmlFor="my-modal" className="btn">
                                 Close
                             </label>
-                            <label
+                            {
+                                !btnIsAllow ? <button
+                                className="btn btn-active btn-primary"
+                                disabled="disabled"
+                            >
+                                submit data
+                            </button>  : <label
                                 htmlFor="my-modal"
                                 onClick={handleSubmitData}
                                 className="btn btn-active btn-primary"
                             >
                                 submit data
                             </label>
+                            }
+                            
                         </div>
                     </div>
                 </div>
