@@ -5,17 +5,16 @@ import { onSubmitData } from "../../store/slices/mainDataSlice";
 function ModalButton() {
     const dispatch = useDispatch();
 
-    const [tableData, setTableData] = useState([]);
     const [name, setName] = useState("");
     const [lastName, setLastName] = useState("");
-    const [skills, setSkills] = useState();
+    const [skills, setSkills] = useState([]);
     const [bd, setBd] = useState("");
     const [age, setAge] = useState();
     
     const clearHooks = () => {
         setName("")
         setLastName("")
-        setSkills(null)
+        setSkills([])
         setBd("")
         setAge(null)
     }
@@ -36,7 +35,7 @@ function ModalButton() {
     };
 
     const handleSkillsChange = (e) => {
-        setSkills(e.target.value);
+        setSkills(Array.from(e.target.selectedOptions, option => option.value)) 
     };
 
     const handleSubmitData = () => {

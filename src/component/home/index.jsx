@@ -1,4 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { onSubmitData } from "../../store/slices/mainDataSlice";
+
 
 function Index() {
 

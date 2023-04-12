@@ -1,11 +1,16 @@
 import React from "react";
-import ButtonContainer from "../../component/home/buttonContainer";
+import DataTable from "../../component/home/dataTable";
+import ChartsButton from "../../component/home/chartsButton";
+import ModalButton from "../../component/home/modalButton";
 
 function Home() {
     return (
-        <div className="px-64 pt-32">
-            <ButtonContainer />
-            aaa
+        <div className="md:px-64 md:pt-32 p-10">
+            <div className="flex justify-between">
+                <ChartsButton />
+                <ModalButton />
+            </div>
+            <DataTable />
         </div>
     );
 }
