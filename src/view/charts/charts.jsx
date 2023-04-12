@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import ChartBySkills from "../../component/charts/chartBySkills";
+import ChartByAge from "../../component/charts/chartsByAge";
 
 function Charts() {
-  return (
-    <div>Charts</div>
-  )
+    return (
+        <>
+            <ChartByAge />
+            <ChartBySkills />
+        </>
+    );
 }
 
-export default Charts
+export default Charts;

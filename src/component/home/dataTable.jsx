@@ -3,10 +3,7 @@ import { useSelector } from "react-redux";
 
 function DataTable() {
     const dataList = useSelector((state) => state.mainData.mainData);
-    console.log("====================================");
-    console.log(dataList);
-    console.log("====================================");
-
+   
     return (
         <div className="pt-4">
             {dataList.length == 0 ? (
